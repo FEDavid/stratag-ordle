@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 function SettingsModal({ currentlyVisible, hideModal }) {
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -21,14 +22,15 @@ function SettingsModal({ currentlyVisible, hideModal }) {
     }, []);
 
     async function handleSubmit(e) {
-        e.preventDefault(); // stop page reload
-
-        const newUser = await createUser(name);
-
-        // update UI immediately
-        setData(prev => [...prev, newUser]);
-
-        setName(""); // clear input
+        e.preventDefault();
+        try {
+            const newUser = await createUser(name);
+            setData(prev => [...prev, newUser]);
+            setName("");
+            setError(null);
+        } catch (err) {
+            setError(err.message);
+        }
     }
 
     async function createUser(name) {
@@ -63,11 +65,12 @@ function SettingsModal({ currentlyVisible, hideModal }) {
                     <input
                         type="text"
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => {setName(e.target.value); setError(null);}}
                         placeholder="Enter name"
                     />
                     <button type="submit">Add</button>
                 </form>
+                {error && <p>{error}</p>}
 
                 <h1>User list</h1>
                 {data.map(user => (
