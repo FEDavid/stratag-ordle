@@ -2,7 +2,7 @@
 import { neon } from '@neondatabase/serverless';
 
 export default async function handler(req, res) {
-  const sql = neon(process.env.DATABASE_URL);
+  const sql = neon(process.env.stratag_DATABASE_URL);
 
   if (req.method !== 'POST') {
     return res.status(405).end();
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   const { name } = req.body;
 
   const result = await sql`
-    INSERT INTO users (user_name)
+    INSERT INTO strateg_users (user_name)
     VALUES (${name})
     RETURNING *
   `;
