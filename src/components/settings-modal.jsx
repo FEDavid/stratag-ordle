@@ -42,11 +42,13 @@ function SettingsModal({ currentlyVisible, hideModal }) {
             body: JSON.stringify({ name })
         });
 
+        const data = await res.json();
+
         if (!res.ok) {
-            throw new Error('Failed to create user');
+            throw new Error(data.error || 'Failed to create user');
         }
 
-        return await res.json();
+        return data;
     }
 
     if (!currentlyVisible) return null;
@@ -65,7 +67,7 @@ function SettingsModal({ currentlyVisible, hideModal }) {
                     <input
                         type="text"
                         value={name}
-                        onChange={(e) => {setName(e.target.value); setError(null);}}
+                        onChange={(e) => { setName(e.target.value); setError(null); }}
                         placeholder="Enter name"
                     />
                     <button type="submit">Add</button>
