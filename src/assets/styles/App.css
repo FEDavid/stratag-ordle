@@ -1,0 +1,50 @@
+@import "Reset.css";
+@import "Input.css";
+@import "Responsive.css";
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: pink;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: green;
+  width: auto;
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  padding: 1rem;
+}
+
+.content-section{
+  background-color: lightyellow;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+/* User Input section */
+.user-input{
+  background-colour: lightgreen;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.input-btn{
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 4.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+}

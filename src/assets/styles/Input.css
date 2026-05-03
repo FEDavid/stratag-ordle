@@ -1,0 +1,11 @@
+.input-section{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.input-btn{
+    flex-grow: 1;
+    background-color: lightblue;
+}
