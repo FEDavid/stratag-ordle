@@ -1,0 +1,15 @@
+.modal-container{
+    background-color: RGBA(0,0,0,0.5);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 2rem;
+}
+
+.modal-background{
+    max-width: 500px;
+    width: 100%;
+    background-color: pink;
+}

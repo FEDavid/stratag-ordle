@@ -1,6 +1,7 @@
 @import "Reset.css";
 @import "Input.css";
 @import "Responsive.css";
+@import "Modal.css";
 
 html, body, #root {
   height: 100%;
@@ -12,6 +13,7 @@ body {
 
 #root {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
