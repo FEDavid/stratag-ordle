@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   const { name } = req.body;
 
   const result = await sql`
-    INSERT INTO strateg_users (user_name)
+    INSERT INTO stratag_users (user_name)
     VALUES (${name})
     RETURNING *
   `;
